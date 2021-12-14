@@ -1,0 +1,215 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 12px;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container-app {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container-weather-bg.dash {
+  background-image: url(../assets/bg-dashboard.svg);
+  background-size: 800px 800px;
+}
+
+.container-weather-bg.rain {
+  background-image: url(../assets/bg-rain.svg);
+}
+
+.container-weather-bg.sunny {
+  background-image: url(../assets/bg-sunny.svg);
+}
+
+.container-weather-bg.storm {
+  background-image: url(../assets/bg-storm.svg);
+}
+
+.container-weather-bg.mist {
+  background-image: url(../assets/bg-mist.svg);
+}
+
+.container-load, .container-weather-bg {
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.container-forecast, .container-weather-bg, .container-load {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  max-width: 500px;
+  width: 100%;
+}
+
+.container-forecast h1 {
+  font-size: 3rem;
+  letter-spacing: .5rem;
+  text-transform: uppercase;
+  margin-bottom: 1em;
+  font-weight: 500;
+  color: #6eeeff;
+  text-shadow: 2px 2px 2px #053D75;
+}
+
+.container-forecast h1 span {
+  color: white;
+  font-weight: 800;
+}
+
+.container-forecast .hide-title {
+  display: none;
+}
+
+.container-forecast form {
+  margin-bottom: 2.5em;
+}
+
+.container-forecast form input {
+  border-radius: 25px;
+  padding: 1em  2em;
+  border: none;
+  opacity: 0.7;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  width: 280px;
+}
+
+.container-forecast form input:focus {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  opacity: 1;
+  outline: none;
+  -webkit-box-shadow: 0px 0px 8px 2px #053D75;
+          box-shadow: 0px 0px 8px 2px #053D75;
+}
+
+.container-forecast .display-forecast {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container-forecast .display-forecast .forecast-title, .container-forecast .display-forecast p, .container-forecast .display-forecast h4, .container-forecast .display-forecast .forecast {
+  color: white;
+  margin-bottom: 2em;
+}
+
+.container-forecast .display-forecast .forecast {
+  height: 160px;
+  width: 150px;
+}
+
+.container-forecast .display-forecast .forecast-rain {
+  background: url(../assets/forecast-rain.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.container-forecast .display-forecast .forecast-sunny {
+  background: url(../assets/forecast-sunny.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.container-forecast .display-forecast .forecast-storm {
+  background: url(../assets/forecast-storm.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.container-forecast .display-forecast .forecast-mist {
+  background: url(../assets/forecast-mist.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.container-forecast .hide-forecast {
+  display: none;
+}
+
+.container-forecast h4 {
+  font-size: 1.5rem;
+  letter-spacing: 0.2rem;
+  font-weight: 300;
+}
+
+.container-forecast sup {
+  font-size: 1.5rem;
+}
+
+.container-forecast p {
+  font-size: 1.3rem;
+  letter-spacing: 0.3rem;
+  font-weight: 500;
+}
+
+.container-load, .container-forecast {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container-load {
+  background-image: url(../assets/load.svg);
+}
+
+.background {
+  min-height: 100vh;
+}
+
+.background.dash {
+  background-image: linear-gradient(55deg, #0098B1, #053D75);
+}
+
+.background.rain {
+  background-image: linear-gradient(55deg, #053D75, #0098B1);
+}
+
+.background.sunny {
+  background-image: linear-gradient(55deg, #ECBB69, #E36550);
+}
+
+.background.storm {
+  background-image: linear-gradient(55deg, #E2EEA4, #065963);
+}
+
+.background.mist {
+  background-image: linear-gradient(55deg, #79838D, #B9C6D6);
+}
+
+@media screen and (max-width: 500px) {
+  html {
+    font-size: 8px;
+  }
+}
+/*# sourceMappingURL=App.css.map */
