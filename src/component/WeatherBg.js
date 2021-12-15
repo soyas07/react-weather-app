@@ -1,6 +1,6 @@
 import React from 'react'
 
-function WeatherBg() {
+function WeatherBg( {info} ) {
     return (
         <div className='container-weather-bg dash'>
         </div>
