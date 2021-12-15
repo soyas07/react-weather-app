@@ -25,11 +25,13 @@ function Forecast( { submitLocation, submitted, info} ) {
             <div className={submitted ? "display-forecast" : "hide-forecast"}>
                 <h1 className="forecast-title">WEATHER</h1>
                 <h4>{info.city}</h4>
-                <div className="forecast forecast-rain">
-                </div>
+                {(info.weather==='Rain') && <div className="forecast forecast-rain"></div>}
+                {(info.weather==='Clear') && <div className="forecast forecast-sunny"></div>}
+                {(info.weather==='Thunderstorm') && <div className="forecast forecast-storm"></div>}
+                {(info.weather==='Clouds') && <div className="forecast forecast-mist"></div>}
                 <h1 className="forecast-title">{info.currentTemp}<sup>oC</sup></h1>
                 <p>{info.weather}</p>
-                <p>{dateTime.toLocaleString('en-us', {hour: 'numeric', minute: 'numeric', hour12: true, timezone: info.timezone })}</p>
+                <p>{dateTime.toLocaleString('en-us', {weekday: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true, timezone: 'utc' })}</p>
             </div>        
         </div>
     )
