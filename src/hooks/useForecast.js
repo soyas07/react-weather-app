@@ -1,34 +1,27 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import {gatherData} from '../manageData/gatherData'
 
 function useForecast() {
-    const URL = 'https://api.openweathermap.org/data/2.5/weather?q=Sydney&appid=b17c52ecf93e5a256de3bf62785ce96f'
 
     const [isLoading, setLoading] = useState(false)
     const [error, setError] = useState()
-    const [info, setInfo] = useState()
+    const [info, setInfo] = useState([])
+    const [weatherData, setWeatherData] = useState()
 
     const callApi = async (city) => {
         setLoading(true)
-        await axios.get(URL)
-        .then(res => {setInfo(res.data)})
-        .catch(err => setError(err))
-        .finally(() => {setLoading(false)
-            gatherData(info, city)})
-        
-    }
-
-    const refetch = () => {
-        console.log('refetching')
-        setLoading(true)
-        axios.get(URL)
-        .then(res => setInfo(res.data))
+        await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=b17c52ecf93e5a256de3bf62785ce96f`)
+        .then(res => {setInfo({
+            city: res.data.name,
+            currentTemp: Math.round(res.data.main.temp - 273.15),
+            weather: res.data.weather[0].main,
+            timezone: res.data.timezone
+        })})
         .catch(err => setError(err))
         .finally(() => setLoading(false))
     }
 
-    return { isLoading, error, info, refetch, callApi }
+    return { isLoading, info, error, callApi }
 }
 
 export default useForecast

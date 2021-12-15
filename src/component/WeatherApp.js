@@ -8,9 +8,9 @@ import useForecast from '../hooks/useForecast'
 function WeatherApp() {
 
     const [submit, setSubmit] = useState(false)
-    const [weatherData, setWeatherData] = useState([])
+    const [weatherData, setWeatherData] = useState()
 
-    const { isLoading, error, info, refetch, callApi } = useForecast()
+    const { isLoading, info, error, callApi } = useForecast()
 
     const onSubmit = location => {
         setSubmit(true)
