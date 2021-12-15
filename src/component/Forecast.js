@@ -31,7 +31,7 @@ function Forecast( { submitLocation, submitted, info} ) {
                 {(info.weather==='Clouds') && <div className="forecast forecast-mist"></div>}
                 <h1 className="forecast-title">{info.currentTemp}<sup>oC</sup></h1>
                 <p>{info.weather}</p>
-                <p>{dateTime.toLocaleString('en-us', {weekday: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true, timezone: 'utc' })}</p>
+                <p>{dateTime.toLocaleString('en-us', {hour: 'numeric', minute: 'numeric', hour12: true, timezone: 'utc' })}</p>
             </div>        
         </div>
     )
