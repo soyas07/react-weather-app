@@ -8,6 +8,7 @@ import useForecast from '../hooks/useForecast'
 function WeatherApp() {
 
     const [submit, setSubmit] = useState(false)
+    const [weatherData, setWeatherData] = useState([])
 
     const { isLoading, error, info, refetch, callApi } = useForecast()
 
