@@ -1,12 +1,11 @@
 import axios from 'axios'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 function useForecast() {
 
     const [isLoading, setLoading] = useState(false)
     const [error, setError] = useState()
     const [info, setInfo] = useState([])
-    const [weatherData, setWeatherData] = useState()
 
     const callApi = async (city) => {
         setLoading(true)

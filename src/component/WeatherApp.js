@@ -4,29 +4,35 @@ import WeatherBg from './WeatherBg'
 import Loading from './Loading'
 import Forecast from './Forecast'
 import useForecast from '../hooks/useForecast'
+import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion'
 
 function WeatherApp() {
 
     const [submit, setSubmit] = useState(false)
-    const [weatherData, setWeatherData] = useState()
 
     const { isLoading, info, error, callApi } = useForecast()
 
     const onSubmit = location => {
-        setSubmit(true)
         callApi(location)
+        if(!error)
+            setSubmit(true)
     }
 
-    if(error)
-        return <h1>{error}</h1>
-
     return (
-        <div className='container-app'>
-            { <Background info={info} />}
-            { <WeatherBg info={info} />}
-            {isLoading && <Loading />}
-            {!isLoading && <Forecast submitLocation={onSubmit} submitted={submit} info={info} />}
-        </div>
+        <AnimatePresence exitBeforeEnter>
+            <div className='container-app'>
+                { <motion.div initial={{ opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}> 
+                    <Background info={info} />
+                </motion.div>}
+                { <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
+                    <WeatherBg info={info} />
+                </motion.div>}
+                {isLoading && <Loading />}
+                {!isLoading && <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
+                    <Forecast submitLocation={onSubmit} submitted={submit} info={info} />
+                </motion.div>}
+            </div>
+        </AnimatePresence>
     )
 }
 
